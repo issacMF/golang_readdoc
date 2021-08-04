@@ -17,7 +17,7 @@ func main() {
 	//token memory store
 	manager.MustTokenStorage(store.NewMemoryTokenStore())
 	clientStore := store.NewClientStore()
-	clientStore.Set("232323", &models.Client{
+	clientStore.Set("000000", &models.Client{
 		ID:     "000000",
 		Secret: "999999",
 		Domain: "http://localhost",
@@ -47,7 +47,6 @@ func main() {
 	})
 
 	http.HandleFunc("/token", func(w http.ResponseWriter, r *http.Request) {
-		log.Println(r)
 		srv.HandleTokenRequest(w, r)
 	})
 
